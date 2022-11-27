@@ -1,5 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+import os
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -14,7 +16,7 @@ def favicon():
 
 @app.route('/hello', methods=['POST'])
 def hello():
-   name = request.form.get('name')
+   name = os.environ['pythonTest']
 
    if name:
        print('Request for hello page received with name=%s' % name)
