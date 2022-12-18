@@ -4,7 +4,6 @@ import os
 
 app = Flask(__name__)
 
-
 @app.route('/')
 
 def index():
@@ -12,12 +11,12 @@ def index():
    try:  
      environment = os.environ['environment'] 
    except KeyError: 
-     environment = ''
+     environment = 'null'
 
    try:  
      secret = os.environ['secret'] 
    except KeyError: 
-     secret = ''
+     secret = 'null'
 
    return render_template('index.html', environment=environment, secret=secret )
 
