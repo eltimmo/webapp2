@@ -16,12 +16,12 @@ def index():
    try:  
      sauce = os.environ['sauce'] 
    except KeyError: 
-     sauce = 'sauce'
+     sauce = 'null'
 
    try:  
      meat = os.environ['meat'] 
    except KeyError: 
-     meat = 'sauce'     
+     meat = 'null'     
 
    return render_template('index.html', environment=environment, sauce=sauce, meat=meat )
 
