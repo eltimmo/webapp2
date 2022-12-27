@@ -18,7 +18,12 @@ def index():
    except KeyError: 
      sauce = 'sauce'
 
-   return render_template('index.html', environment=environment, sauce=sauce )
+   try:  
+     meat = os.environ['meat'] 
+   except KeyError: 
+     meat = 'sauce'     
+
+   return render_template('index.html', environment=environment, sauce=sauce, meat=meat )
 
 @app.route('/favicon.ico')
 def favicon():
