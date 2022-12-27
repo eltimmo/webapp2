@@ -14,11 +14,11 @@ def index():
      environment = 'null'
 
    try:  
-     secret = os.environ['secret'] 
+     sauce = os.environ['sauce'] 
    except KeyError: 
-     secret = 'null'
+     sauce = 'sauce'
 
-   return render_template('index.html', environment=environment, secret=secret )
+   return render_template('index.html', environment=environment, sauce=sauce )
 
 @app.route('/favicon.ico')
 def favicon():
