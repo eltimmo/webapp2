@@ -19,11 +19,11 @@ def index():
      sauce = 'null'
 
    try:  
-     meat = os.environ['meat'] 
+     options = os.environ['options'] 
    except KeyError: 
-     meat = 'null'     
+     options = 'null'     
 
-   return render_template('index.html', environment=environment, sauce=sauce, meat=meat )
+   return render_template('index.html', environment=environment, sauce=sauce, options=options )
 
 @app.route('/favicon.ico')
 def favicon():
