@@ -20,6 +20,7 @@ def index():
 
    try:  
      options = {k: v for k, v in (os.environ).items() if k.startswith('option_')}
+     options = list(options.values())
    except KeyError: 
      options = 'null' 
 
