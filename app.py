@@ -19,10 +19,9 @@ def index():
      sauce = 'null'
 
    try:  
-     options = os.environ['options'] 
-     options = ['Red', 'Blue', 'Black', 'Orange']
+     options = {k: v for k, v in (os.environ).items() if k.startswith('option_')}
    except KeyError: 
-     options = 'null'     
+     options = 'null' 
 
    return render_template('index.html', environment=environment, sauce=sauce, options=options )
 
