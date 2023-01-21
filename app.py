@@ -20,6 +20,7 @@ def index():
 
    try:  
      options = os.environ['options'] 
+     options = ['Red', 'Blue', 'Black', 'Orange']
    except KeyError: 
      options = 'null'     
 

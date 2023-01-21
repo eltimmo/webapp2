@@ -13,7 +13,13 @@
             <h1 class="display-6 fw-bold text-primary">WebApp</h1>
             <h1 class="display-6 fw-bold">Environment {{ environment }}</h1>
             <h1 class="display-6 fw-bold">Sauce       {{ sauce }}</h1>
-            <h1 class="display-6 fw-bold">Options     {{ options }}</h1>                                
+            <h1 class="display-6 fw-bold">Options     {{ options }}</h1> 
+            <select name="colour" method="GET" action="/">
+              <option value="{{options[0]}}" selected>{{options[0]}}</option>
+              {% for colour in colours[1:] %}
+                <option value="{{options}}">{{colour}}</option>
+              {% endfor %}
+            </select>
           </div>
      </main>      
    </body>
