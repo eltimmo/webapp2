@@ -12,9 +12,9 @@
             <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
             <h1 class="display-6 fw-bold text-primary">WebApp</h1>
             <h1 class="display-6 fw-bold">Environment {{ environment }}</h1>
-            <h1 class="display-6 fw-bold">Sauce       {{ sauce }}</h1>
-            <select name=options method="GET" action="/">
-              {% for option in options %}
+            <h1 class="display-6 fw-bold">Something {{ environment }}</h1>
+            <select name=sauces method="GET" action="/">
+              {% for option in sauces %}
               <option value= "{{ option }}" SELECTED>{{ option }}</option>"
               {% endfor %}
           </select>                              

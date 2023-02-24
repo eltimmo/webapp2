@@ -14,17 +14,12 @@ def index():
      environment = 'null'
 
    try:  
-     sauce = os.environ['sauce'] 
+     sauces = {k: v for k, v in (os.environ).items() if k.startswith('sauce-')}
+     sauces = list(sauces.values())
    except KeyError: 
-     sauce = 'null'
+     sauces = 'null' 
 
-   try:  
-     options = {k: v for k, v in (os.environ).items() if k.startswith('option_')}
-     options = list(options.values())
-   except KeyError: 
-     options = 'null' 
-
-   return render_template('index.html', environment=environment, sauce=sauce, options=options )
+   return render_template('index.html', environment=environment, sauces=sauces )
 
 @app.route('/favicon.ico')
 def favicon():
