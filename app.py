@@ -14,7 +14,7 @@ def index():
      environment = 'null'
 
    try:  
-     sauces = {k: v for k, v in (os.environ).items() if k.startswith('sauce-')}
+     sauces = {k: v for k, v in (os.environ).items() if k.startswith('sauce0')}
      sauces = list(sauces.values())
    except KeyError: 
      sauces = 'null' 
