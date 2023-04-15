@@ -9,17 +9,19 @@
      <main>
         <div class="px-4 py-3 my-2 text-center">
             <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/azure-icon.svg') }}" alt="Azure Logo" width="192" height="192"/>
-            <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
             <h1 class="display-6 fw-bold text-primary">WebApp</h1>
-            <h1 class="display-6 fw-bold">Environment {{ environment }}</h1>
+            <p>Environment {{ environment }}</p>
+            <label for="proteins">Protien</label>
             <select name=protein method="GET" action="/">
-              {% for option in proteins %}
-                <option value= "{{ option }}" SELECTED>{{ option }}</option>"
+              {% for protien in proteins %}
+                <option value= "{{ protien }}" SELECTED>{{ protien }}</option>"
               {% endfor %}
-            </select>  
+            </select>
+            <br>
+            <label for="sauces">Sauce</label>            
             <select name=sauce method="GET" action="/">
-              {% for option in sauces %}
-                <option value= "{{ option }}" SELECTED>{{ option }}</option>"
+              {% for sauce in sauces %}
+                <option value= "{{ sauce }}" SELECTED>{{ sauce }}</option>"
               {% endfor %}
             </select>                          
         </div>

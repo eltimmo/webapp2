@@ -7,23 +7,23 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 
-    try:  
-      environment = os.environ['environment'] 
-    except KeyError: 
-      environment = 'null'
+    if "environment" in os.environ:
+        environment = os.environ['environment']
+    else:
+        environment = None
 
-    try:  
-      proteins = (os.environ['proteins']).split(",")
-    except KeyError: 
-      proteins = 'null'     
+    if "proteins" in os.environ:
+        proteins = (os.environ['proteins']).split(",")
+    else:
+        proteins = [None]
 
-    try:  
-      sauces = {key: value for key, value in (os.environ).items() if key.startswith('sauce0')}
-      sauces = list(sauces.values())
-    except KeyError: 
-      sauces = 'null' 
+    if "sauces" in os.environ:
+        sauces = {key: value for key, value in (os.environ).items() if key.startswith('sauce0')}
+        sauces = list(sauces.values())
+    else:
+        sauces = [None]
 
-    return render_template('index.html', environment=environment, sauces=sauces )
+    return render_template('index.html', environment=environment, sauces=sauces, proteins=proteins )
 
 @app.route('/favicon.ico')
 def favicon():
