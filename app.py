@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, Response
 import os
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def index():
     else:
         proteins = [None]
 
-    if "sauces" in os.environ:
+    if "sauce01" in os.environ:
         sauces = {key: value for key, value in (os.environ).items() if key.startswith('sauce0')}
         sauces = list(sauces.values())
     else:
@@ -34,11 +34,11 @@ def favicon():
 def health():
 
     if "sauce01" in os.environ:
-      response_code = "200"
+      status_code = 200
     else:
-      response_code = "500"
+      status_code = 500
       
-    return response_code
+    return Response("{'a':'b'}", status=status_code, mimetype='application/json')
 
 if __name__ == '__main__':
     app.run()
