@@ -32,11 +32,10 @@ def favicon():
 
 @app.route('/health')
 def health():
-    
-    try:  
-      environment = os.environ['environment']
+
+    if "sauce01" in os.environ:
       response_code = "200"
-    except KeyError: 
+    else:
       response_code = "500"
       
     return response_code
