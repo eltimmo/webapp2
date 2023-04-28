@@ -33,12 +33,12 @@ def favicon():
 @app.route('/health')
 def health():
 
-    if "sauce01" in os.environ:
+    if "environment" in os.environ:
       status_code = 200
     else:
       status_code = 500
       
-    return Response("{'a':'b'}", status=status_code, mimetype='application/json')
+    return Response( status=status_code, mimetype='application/json')
 
 if __name__ == '__main__':
     app.run()

@@ -11,10 +11,10 @@
             <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/azure-icon.svg') }}" alt="Azure Logo" width="192" height="192"/>
             <h1 class="display-6 fw-bold text-primary">WebApp</h1>
             <p>Environment {{ environment }}</p>
-            <label for="proteins">Protien</label>
+            <label for="proteins">Protein</label>
             <select name=protein method="GET" action="/">
-              {% for protien in proteins %}
-                <option value= "{{ protien }}" SELECTED>{{ protien }}</option>"
+              {% for protein in proteins %}
+                <option value= "{{ protein }}" SELECTED>{{ protein }}</option>"
               {% endfor %}
             </select>
             <br>
